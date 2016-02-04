@@ -3,11 +3,10 @@
 namespace tests\Action;
 
 use stubs\Action\ActionStub;
-use Fojuth\Adr\Responder\ResponderInterface;
+use DeSmart\Adr\Responder\ResponderInterface;
 
 class ActionTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @test
      */
