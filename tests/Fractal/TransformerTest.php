@@ -168,4 +168,28 @@ class TransformerTest extends \PHPUnit_Framework_TestCase
             $scope->toArray()
         );
     }
+
+    /** @test */
+    public function it_should_transform_item_without_includes()
+    {
+        $userWorkplace = new UserWorkplaceEntityStub();
+        $userWorkplace->setName('Doe\'s Constructions');
+
+        $user = new UserEntityStub();
+        $user->setName('John Doe');
+        $user->setEmail('johndoe@example.com');
+        $user->setWorkplace($userWorkplace);
+
+        $scope = $this->transformer->transformItem($user);
+        $this->assertInstanceOf(\League\Fractal\Scope::class, $scope);
+        $this->assertEquals(
+            [
+                'data' => [
+                    'name' => 'John Doe',
+                    'email' => 'johndoe@example.com'
+                ]
+            ],
+            $scope->toArray()
+        );
+    }
 }

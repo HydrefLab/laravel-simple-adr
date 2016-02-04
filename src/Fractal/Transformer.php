@@ -109,13 +109,11 @@ class Transformer
      */
     protected function getTransformer($className)
     {
-        if (true === array_key_exists($className, $this->map)
-            && true === array_key_exists('transformer', $this->map[$className])
-        ) {
-            return $this->app->make($this->map[$className]['transformer']);
+        if (false === $this->isTransformerDefined($className)) {
+            throw new \InvalidArgumentException("Missing transformer mapping for $className.");
         }
 
-        throw new \InvalidArgumentException("Missing transformer mapping for $className.");
+        return $this->app->make($this->map[$className]['transformer']);
     }
 
     /**
@@ -125,12 +123,30 @@ class Transformer
      */
     protected function getResourceName($className)
     {
-        if (true === array_key_exists($className, $this->map)
-            && true === array_key_exists('resource', $this->map[$className])
-        ) {
-            return $this->map[$className]['resource'];
+        if (false === $this->isResourceNameDefined($className)) {
+            throw new \InvalidArgumentException("Missing transformer mapping for $className.");
         }
 
-        throw new \InvalidArgumentException("Missing transformer mapping for $className.");
+        return $this->map[$className]['resource'];
+    }
+
+    /**
+     * @param string $className
+     * @return bool
+     */
+    protected function isTransformerDefined($className)
+    {
+        return (true === array_key_exists($className, $this->map)
+            && true === array_key_exists('transformer', $this->map[$className]));
+    }
+
+    /**
+     * @param string $className
+     * @return bool
+     */
+    protected function isResourceNameDefined($className)
+    {
+        return (true === array_key_exists($className, $this->map)
+            && true === array_key_exists('resource', $this->map[$className]));
     }
 }
