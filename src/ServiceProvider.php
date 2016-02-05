@@ -1,6 +1,6 @@
 <?php
 
-namespace DeSmart\Adr\Providers;
+namespace DeSmart\Adr;
 
 use League\Fractal\Manager;
 use DeSmart\Adr\Fractal\Transformer;
@@ -14,7 +14,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $configPath = __DIR__ . '/../config/adr.php';;
 
-        $this->publishes([$configPath => config_path('adr.php'), 'adr']);
+        $this->publishes([$configPath => config_path('adr.php')]);
         $this->mergeConfigFrom($configPath, 'adr');
     }
 
