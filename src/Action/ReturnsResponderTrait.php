@@ -1,8 +1,8 @@
 <?php
 
-namespace Fojuth\Adr\Action;
+namespace DeSmart\Adr\Action;
 
-use Fojuth\Adr\Responder\ResponderInterface;
+use DeSmart\Adr\Responder\ResponderInterface;
 
 /**
  * If the action (controller) returns an instance of ResponderInterface
@@ -10,6 +10,11 @@ use Fojuth\Adr\Responder\ResponderInterface;
  */
 trait ReturnsResponderTrait
 {
+    /**
+     * @param string $method
+     * @param array $parameters
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function callAction($method, $parameters)
     {
         $response = call_user_func_array([$this, $method], $parameters);

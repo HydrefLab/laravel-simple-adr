@@ -1,12 +1,13 @@
 <?php
 
-namespace Fojuth\Adr\Responder;
+namespace DeSmart\Adr\Responder;
+
+use Illuminate\Http\Response;
 
 interface ResponderInterface
 {
-
     /**
-     * @return mixed
+     * @return Response
      */
     public function respond();
 }
