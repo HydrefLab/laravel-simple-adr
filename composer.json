@@ -1,27 +1,43 @@
 {
-    "name": "fojuth/laravel-adr",
+    "name": "hydreflab/laravel-adr",
     "description": "Simple ADR pattern implementation for Laravel",
     "license": "MIT",
     "authors": [
         {
             "name": "Kamil Fojuth",
-            "email": "fojuth@gmail.com"
+            "email": "fen@desmart.com"
+        },
+        {
+            "name": "Michał Golon",
+            "email": "gollum@desmart.com"
+        },
+        {
+            "name": "Lucjan Wilczewski",
+            "email": "lucjan@desmart.com"
         }
     ],
+    "require": {
+        "illuminate/container": "~5.2",
+        "illuminate/http": "~5.2",
+        "illuminate/pagination": "~5.2",
+        "league/fractal": "^0.13.0@dev"
+    },
     "require-dev": {
         "phpunit/phpunit": "5.0.*"
     },
     "autoload": {
         "psr-4": {
-            "Fojuth\\Adr\\": "src/"
+            "DeSmart\\Adr\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "tests\\": "tests/"
+            "tests\\": "tests/",
+            "stubs\\": "stubs/"
         },
         "classmap": [
-            "tests/"
+            "tests/",
+            "stubs/"
         ]
     }
 }
