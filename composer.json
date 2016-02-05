@@ -1,5 +1,5 @@
 {
-    "name": "fojuth/laravel-adr",
+    "name": "hydreflab/laravel-adr",
     "description": "Simple ADR pattern implementation for Laravel",
     "license": "MIT",
     "authors": [
