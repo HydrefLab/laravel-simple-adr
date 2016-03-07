@@ -56,7 +56,7 @@ class GenericResponder implements ResponderInterface
     {
         if (null !== $this->item) {
             return $this->transformer->transformItem($this->item);
-        } else if (null !== $this->collection) {
+        } else if (null !== $this->collection && false === empty($this->collection)) {
             return $this->transformer->transformCollection($this->collection);
         }
 
