@@ -1,5 +1,5 @@
 {
-    "name": "hydreflab/laravel-adr",
+    "name": "hydreflab/laravel-simple-adr",
     "description": "Simple ADR pattern implementation for Laravel",
     "license": "MIT",
     "authors": [
